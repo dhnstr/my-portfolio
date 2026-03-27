@@ -1,0 +1,22 @@
+[
+    {
+        "category": "Languages",
+        "skills": ["PHP", "JavaScript", "TypeScript", "Python","C++", "GO (Golang)"]
+    },
+    {
+        "category": "Markup & Styling",
+        "skills": ["HTML", "CSS"]
+    },
+    {
+        "category": "Frameworks & Libraries",
+        "skills": ["React", "Next.js", "Tailwind CSS", "Laravel", "CodeIgniter"]
+    },
+    {
+        "category": "Databases",
+        "skills": ["MySQL", "PostgreSQL", "SQL Server"]
+    },
+    {
+        "category": "Tools",
+        "skills": ["Git", "GitHub", "VS Code", "Terminal"]
+    }
+]
