@@ -22,12 +22,12 @@ const Workitem = ({ company, role, duration, highlights, logo, isLast }) => {
                     <h3 style={{ color: 'var(--t1)' }} className='font-semibold text-2xl leading-tight'>
                         {company}
                     </h3>
-                    <p style={{ color: 'var(--t6)' }} className='text-2xl mt-1'>
+                    <p style={{ color: 'var(--t2)' }} className='text-2xl mt-1'>
                         {role}
                     </p>
                 </div>
                 <div className='shrink-0 sm:text-right'>
-                    <p style={{ color: 'var(--t6)' }} className='text-2xl font-medium'>
+                    <p style={{ color: 'var(--t2)' }} className='text-2xl font-medium'>
                         {duration}
                     </p>
                 </div>
