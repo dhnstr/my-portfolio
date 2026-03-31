@@ -35,14 +35,32 @@ function About() {
                                 repeat={Infinity}
                                 style={{ color: 'var(--t7)', fontWeight: 600, display: 'inline-block' }}
                             />
-                            {/* <span style={{ color: 'var(--t7)' }}>Web Developer</span> */}
                         </h2>
 
                         <p style={{ color: 'var(--t5)' }} className='text-base leading-relaxed mb-4'>
-                            Hello, my name is Dhanu Satrio Darjanto. I live in Bekasi City, West Java, Indonesia. I've been interested in the world of computers and technology from a young age.
+                            Hi! I&apos;m a Web Developer with a strong background in both backend and frontend development,
+                            passionate about building efficient, scalable, and user-friendly web applications.
+                        </p>
+                        <p style={{ color: 'var(--t5)' }} className='text-base leading-relaxed mb-4'>
+                            I graduated with a Bachelor&apos;s degree in Informatics from Telkom University (GPA 3.94), where I
+                            developed a solid foundation in software engineering, databases, and web technologies. During my
+                            academic journey, I also served as a Practicum Assistant and Assistant Lecturer, supporting courses
+                            such as Operating Systems and Discrete Mathematics—an experience that strengthened my
+                            problem-solving, communication, and time management skills.
+                        </p>
+                        <p style={{ color: 'var(--t5)' }} className='text-base leading-relaxed mb-4'>
+                            Currently, I work at PT Fajar Mas Murni, where I&apos;m involved in developing and maintaining internal
+                            web applications using PHP (CodeIgniter), SQL Server, HTML, CSS, and JavaScript. I focus on writing
+                            clean, maintainable code, optimizing database queries, and delivering solutions that align with
+                            business needs and enhance user experience.
+                        </p>
+                        <p style={{ color: 'var(--t5)' }} className='text-base leading-relaxed mb-4'>
+                            I&apos;m highly motivated to continuously learn, explore new technologies, and grow as a professional
+                            in the tech industry—especially in building impactful web solutions that bring real value to users and
+                            organizations.
                         </p>
                         <p style={{ color: 'var(--t5)' }} className='text-base leading-relaxed mb-10'>
-                            Currently a final-year Informatics student at Telkom University. Over the past 3 years I've studied Python, Golang, C++, HTML, CSS, PHP, and JavaScript to sharpen my problem-solving skills. I love to learn new things, write code, listen to music, and play video games.
+                            ✨ Always open to collaboration, knowledge sharing, and new challenges in web development.
                         </p>
 
                         <div
@@ -50,8 +68,8 @@ function About() {
                             className='grid grid-cols-3 gap-6 pt-8 border-t'
                         >
                             {[
-                                { value: '3+', label: 'Years Learning' },
-                                { value: '4+', label: 'Projects Built' },
+                                { value: '3.94', label: 'GPA' },
+                                { value: 'Tel-U', label: 'Alumni' },
                                 { value: 'BKS', label: 'Location' },
                             ].map(({ value, label }) => (
                                 <div key={label}>

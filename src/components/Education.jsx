@@ -1,4 +1,5 @@
 import React from 'react';
+import Educationitem from './Educationitem';
 import educations from './data/educations.json';
 
 const Education = () => {
@@ -12,26 +13,24 @@ const Education = () => {
                     >
                         Education
                     </div>
-                    <h2 style={{ color: 'var(--t1)' }} className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-5 tracking-tight leading-tight'>
+                    <h2
+                        style={{ color: 'var(--t1)' }}
+                        className='text-4xl sm:text-5xl lg:text-6xl font-bold mb-5 tracking-tight leading-tight'
+                    >
                         My Educational Journey
                     </h2>
-                    <p style={{ color: 'var(--t5)' }} className='text-base max-w-2xl leading-relaxed'>
+                    <p style={{ color: 'var(--t5)' }} className='text-base max-w-xl leading-relaxed'>
                         My educational journey that has shaped my skills and knowledge over the years.
                     </p>
                 </div>
 
-                <div className='space-y-4'>
+                <div className='mt-10'>
                     {educations.map((education, index) => (
-                        <div
-                            key={index}
-                            style={{ backgroundColor: 'var(--bg2)', borderColor: 'var(--bd)' }}
-                            className='rounded-2xl border px-6 py-5 hover:border-[var(--bd2)] transition-colors duration-200'
-                        >
-                            <p style={{ color: 'var(--t1)' }} className='font-bold text-lg'>{education.school}</p>
-                            <p style={{ color: 'var(--t4)' }} className='mt-1.5'>{education.degree}</p>
-                            <p style={{ color: 'var(--t5)' }} className='text-sm mt-1'>{education.fieldOfStudy}</p>
-                            <p style={{ color: 'var(--t7)' }} className='text-xs mt-2 uppercase tracking-wider'>{education.year}</p>
-                        </div>
+                        <Educationitem
+                            key={`${education.school}-${education.year}`}
+                            isLast={index === educations.length - 1}
+                            {...education}
+                        />
                     ))}
                 </div>
             </div>

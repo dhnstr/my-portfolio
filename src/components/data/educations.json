@@ -3,12 +3,20 @@
         "school": "Telkom University",
         "degree": "Bachelor's degree",
         "fieldOfStudy": "Informatics",
-        "year": "2020 - Present"
+        "year": "2020 - Present",
+        "highlights": [
+            "Foundation in software engineering, databases, and web technologies.",
+            "Practicum Assistant and Assistant Lecturer for Operating Systems and Discrete Mathematics."
+        ]
     },
     {
         "school": "SMAN 3 Bekasi",
         "degree": "Senior High School",
         "fieldOfStudy": "Science",
-        "year": "2017 - 2020"
+        "year": "2017 - 2020",
+        "highlights": [
+            "Science track with focus on mathematics, physics, and chemistry.",
+            "Prepared for undergraduate studies in informatics and engineering."
+        ]
     }
 ]

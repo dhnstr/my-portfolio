@@ -88,3 +88,25 @@ body {
   box-shadow: 0 0 0 1px var(--social-hover-color, var(--bd2)), 0 0 16px var(--social-hover-color, var(--bd2));
   transform: translateY(-1px);
 }
+
+/* Modal overlay + card animation */
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: scale(0.88) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+@keyframes overlayOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes cardOut {
+  from { opacity: 1; transform: scale(1)    translateY(0); }
+  to   { opacity: 0; transform: scale(0.88) translateY(12px); }
+}
+.modal-overlay        { animation: overlayIn  280ms cubic-bezier(.22,1,.36,1) both; }
+.modal-overlay.exiting{ animation: overlayOut 220ms cubic-bezier(.55,0,1,.45) both; }
+.modal-card           { animation: cardIn     320ms cubic-bezier(.22,1,.36,1) both; }
+.modal-card.exiting   { animation: cardOut    220ms cubic-bezier(.55,0,1,.45) both; }

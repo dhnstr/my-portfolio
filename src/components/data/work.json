@@ -1,0 +1,66 @@
+[
+    {
+        "company": "PT. Fajar Mas Murni",
+        "role": "IT Development Staff (Contract)",
+        "duration": "Mar 2024 - Present",
+        "logoKey": "fmm",
+        "highlights": [
+            "Developed and maintained internal web-based systems to support business operations, including budgeting, sales monitoring, and reporting modules.",
+            "Built interactive dashboards to visualize business data, enabling more efficient and data-driven decision-making.",
+            "Implemented and enhanced budgeting features, including input forms, calculations, and monitoring tools.",
+            "Created and optimized data reports for sales performance, financial tracking, and business analysis.",
+            "Developed simulation features such as gross margin calculations to support strategic planning.",
+            "Processed and transformed large datasets into structured and meaningful insights for stakeholders.",
+            "Improved system usability by refining UI/UX components and ensuring smoother user workflows.",
+            "Collaborated with cross-functional teams to gather requirements and translate them into technical solutions.",
+            "Performed testing, debugging, and troubleshooting to ensure system stability and accuracy.",
+            "Contributed to continuous system improvements and feature enhancements based on user feedback."
+        ]
+    },  
+    {
+        "company": "PT. Fajar Mas Murni",
+        "role": "IT Development Intern",
+        "duration": "Mar 2024 – Aug 2024",
+        "logoKey": "fmm",
+        "highlights": [
+            "Troubleshooted enterprise web applications built with CodeIgniter.",
+            "Developed a CRUD-based authentication feature for internal systems.",
+            "Collaborated with the development team to verify bug fixes and flows.",
+            "Maintained and improved system performance through testing and debugging.",
+            "Built dashboards and data visualization tools for business insights."
+        ]
+    },
+    {
+        "company": "Telkom University",
+        "role": "Practicum Assistant for Operating System",
+        "duration": "Mar 2023 – Jun 2023",
+        "logoKey": "telkom",
+        "highlights": [
+            "Reviewed laboratory journals and graded operating system practicum work.",
+            "Delivered explanations for core operating system concepts in lab sessions.",
+            "Supported students in solving technical issues during final assignments."
+        ]
+    },
+    {
+        "company": "Telkom University",
+        "role": "Practicum Assistant for Computer Network",
+        "duration": "Mar 2023 – Jun 2023",
+        "logoKey": "telkom",
+        "highlights": [
+            "Evaluated laboratory journals and assessed practicum task submissions.",
+            "Explained networking laboratory materials and guided hands-on sessions.",
+            "Provided technical assistance to students during major assignments."
+        ]
+    },
+    {
+        "company": "Telkom University",
+        "role": "Mathematic Discrete Assistant Lecturer",
+        "duration": "Jun 2022 – Sept 2022",
+        "logoKey": "telkom",
+        "highlights": [
+            "Conducted task evaluation and summarization for weekly student assignments.",
+            "Performed testing and validation of online quiz questions before release.",
+            "Assisted students and answered class discussions through online forums."
+        ]
+    }
+]

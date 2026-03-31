@@ -1,18 +1,23 @@
 import React from 'react';
 import { FiArrowUp } from 'react-icons/fi';
-import logoImage from '../../src/assets/logo.svg';
+import logoBlack from '../assets/logo-black.png';
+import logoWhite from '../assets/logo-white.png';
 
-const Footer = () => {
+const Footer = ({ theme }) => {
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (
         <footer style={{ borderColor: 'var(--bd-dim)' }} className='border-t'>
             <div className='max-w-6xl mx-auto px-6 py-8 flex items-center justify-between'>
                 <div>
-                    <img src={logoImage} alt="Logo" className='w-10 h-10 object-contain' />
-                    <p style={{ color: 'var(--t1)' }} className='text-sm font-bold tracking-tight'>
+                    <img
+                        src={theme === 'dark' ? logoWhite : logoBlack}
+                        alt='Logo'
+                        className='w-10 h-10 object-contain transition-opacity duration-300'
+                    />
+                    {/* <p style={{ color: 'var(--t1)' }} className='text-sm font-bold tracking-tight'>
                         Dhanu<span style={{ color: 'var(--t6)' }}> Satrio<span style={{ color: 'var(--t1)' }}> Darjanto</span></span>
-                    </p>
+                    </p> */}
                     <p style={{ color: 'var(--t2)' }} className='text-xs mt-1'>
                         Made with too much coffee ☕ • 2024
                     </p>

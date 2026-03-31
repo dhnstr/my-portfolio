@@ -3,7 +3,8 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { BsMoon, BsSun } from 'react-icons/bs';
 import { Link } from 'react-scroll';
 import resume from '../assets/Resume.pdf';
-import logoImage from '../assets/logo.svg';
+import logoBlack from '../assets/logo-black.png';
+import logoWhite from '../assets/logo-white.png';
 
 const ThemeToggle = ({ theme, toggleTheme }) => (
     <button
@@ -58,7 +59,11 @@ const Navbar = ({ theme, toggleTheme }) => {
         >
             <div className='max-w-6xl mx-auto px-6 py-5 flex items-center justify-between'>
                 <Link to='main' spy smooth duration={500} className='cursor-pointer inline-flex items-center gap-2'>
-                    <img src={logoImage} alt="Logo" className='w-10 h-10 object-contain' />
+                    <img
+                        src={theme === 'dark' ? logoWhite : logoBlack}
+                        alt='Logo'
+                        className='w-10 h-10 object-contain transition-opacity duration-300'
+                    />
                     <span style={{ color: 'var(--t1)' }} className='font-bold text-base tracking-tight'>
                         Dhanu<span style={{ color: 'var(--t6)' }}> Satrio <span style={{ color: 'var(--t1)' }}>Darjanto</span></span>
                     </span>
@@ -85,8 +90,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                     <a
                         href={resume}
                         download='CV_Dhanu.pdf'
-                        style={{ backgroundColor: 'var(--inv)', color: 'var(--inv-t)' }}
-                        className='text-sm px-5 py-2 rounded-full font-medium transition-colors hover:opacity-80'
+                        className='text-sm px-5 py-2 rounded-full font-medium border border-[var(--inv)] bg-[var(--inv)] text-[var(--inv-t)] transition-all duration-200 hover:bg-transparent hover:text-[var(--t3)] hover:border-[var(--bd)]'
                     >
                         Download CV
                     </a>
@@ -126,8 +130,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                     <a
                         href={resume}
                         download='CV_Dhanu.pdf'
-                        style={{ backgroundColor: 'var(--inv)', color: 'var(--inv-t)' }}
-                        className='text-sm px-5 py-3 rounded-full font-medium text-center mt-4 hover:opacity-80'
+                        className='text-sm px-5 py-3 rounded-full font-medium text-center mt-4 border border-[var(--inv)] bg-[var(--inv)] text-[var(--inv-t)] transition-all duration-200 hover:bg-transparent hover:text-[var(--t3)] hover:border-[var(--bd)]'
                     >
                         Download CV
                     </a>

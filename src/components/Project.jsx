@@ -1,56 +1,43 @@
 import React, { useMemo, useState } from 'react';
 import Projectitem from './Projectitem';
-import web1 from '../assets/web-1.jpeg';
-import web3 from '../assets/web-3.jpg';
-import web4 from '../assets/web-4.jpeg';
-import web5 from '../assets/web-5.jpeg';
+import web1 from '../assets/web-lingkar-budaya.jpeg';
+import web3 from '../assets/web-portfolio.png';
+import web4 from '../assets/web-genetic-algorithm.jpeg';
+import web5 from '../assets/web-prospectsys.png';
+import web6 from '../assets/web-event-management.png';
+import web7 from '../assets/web-media-asset.png';
+import web8 from '../assets/web-dashboard-marketing.png';
+import web9 from '../assets/web-phe-services.png';
+import web10 from '../assets/web-helpdesk-ticketing.png';
+import projectsData from './data/projects.json';
 
-const projects = [
-    {
-        img: web3,
-        title: 'Portfolio Website',
-        tech: 'ReactJs, Tailwind CSS',
-        type: 'Personal Project',
-        year: '2024',
-        duration: '1 Week',
-        category: 'React.js',
-    },  
-    {
-        img: web1,
-        title: 'Lingkar Budaya',
-        tech: 'Laravel, HTML, CSS, PHP',
-        type: 'Academic Project',
-        year: '2023',
-        duration: '2 Months',
-        category: 'Laravel',
-    },
-    {
-        img: web4,
-        title: 'Genetic Algorithm',
-        tech: 'Python',
-        type: 'Academic Project',
-        year: '2023',
-        duration: '1 Month',
-        category: 'Python',
-    },
-    {
-        img: web5,
-        title: 'FMM Prospect System',
-        tech: 'CodeIgniter, PHP, SQL Server',
-        type: 'Internship Project',
-        year: '2023',
-        duration: '2 Months',
-        category: 'CodeIgniter',
-    },
-];
+const projectImages = {
+    web1,
+    web3,
+    web4,
+    web5,
+    web6,
+    web7,
+    web8,
+    web9,
+    web10,
+};
 
 const Project = () => {
     const [activeFilter, setActiveFilter] = useState('All');
+    const projects = useMemo(
+        () =>
+            projectsData.map((project) => ({
+                ...project,
+                img: projectImages[project.imageKey],
+            })),
+        []
+    );
 
     const filters = useMemo(() => {
         const categories = [...new Set(projects.map((project) => project.category))];
         return ['All', ...categories];
-    }, []);
+    }, [projects]);
 
     const filteredProjects = useMemo(() => {
         if (activeFilter === 'All') return projects;
@@ -100,7 +87,7 @@ const Project = () => {
 
                 <div className='grid sm:grid-cols-2 gap-5'>
                     {filteredProjects.map((p, i) => (
-                        <Projectitem key={i} {...p} />
+                        <Projectitem key={p.title} index={i} {...p} />
                     ))}
                 </div>
             </div>

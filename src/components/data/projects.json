@@ -1,0 +1,83 @@
+[
+    {
+        "imageKey": "web3",
+        "title": "Portfolio Website",
+        "tech": "Next.js, Tailwind CSS",
+        "type": "Personal Project",
+        "year": "2024",
+        "duration": "1 Week",
+        "category": "Next.js"
+    },
+    {
+        "imageKey": "web1",
+        "title": "Lingkar Budaya",
+        "tech": "Laravel, HTML, CSS, PHP",
+        "type": "Academic Project",
+        "year": "2023",
+        "duration": "2 Months",
+        "category": "Laravel"
+    },
+    {
+        "imageKey": "web4",
+        "title": "Genetic Algorithm",
+        "tech": "Python",
+        "type": "Academic Project",
+        "year": "2023",
+        "duration": "1 Month",
+        "category": "Python"
+    },
+    {
+        "imageKey": "web5",
+        "title": "FMM Prospect System",
+        "tech": "CodeIgniter, PHP, SQL Server, PostgreSQL, HTML, CSS, JavaScript",
+        "type": "Job Project",
+        "year": "2023",
+        "duration": "On Going",
+        "category": "CodeIgniter"
+    },
+    {
+        "imageKey": "web6",
+        "title": "FMM Event Management System",
+        "tech": "CodeIgniter, PHP, SQL Server, HTML, CSS, JavaScript",
+        "type": "Job Project",
+        "year": "2025",
+        "duration": "On Going",
+        "category": "CodeIgniter"
+    },
+    {
+        "imageKey": "web7",
+        "title": "FMM Media Asset",
+        "tech": "CodeIgniter, PHP, SQL Server, HTML, CSS, JavaScript",
+        "type": "Job Project",
+        "year": "2026",
+        "duration": "On Going",
+        "category": "CodeIgniter"
+    },
+    {
+        "imageKey": "web8",
+        "title": "FMM Dashboard Marketing",
+        "tech": "CodeIgniter, PHP, SQL Server, PostgreSQL, HTML, CSS, JavaScript",
+        "type": "Job Project",
+        "year": "2023",
+        "duration": "On Going",
+        "category": "CodeIgniter"
+    },
+    {
+        "imageKey": "web9",
+        "title": "FMM PHE Services",
+        "tech": "Next.js, Tailwind CSS, Node.js, SQL Server",
+        "type": "Job Project",
+        "year": "2025",
+        "duration": "On Going",
+        "category": "Next.js"
+    },
+    {
+        "imageKey": "web10",
+        "title": "FMM Helpdesk Ticketing",
+        "tech": "CodeIgniter, PHP, SQL Server, HTML, CSS, JavaScript",
+        "type": "Job Project",
+        "year": "2026",
+        "duration": "On Going",
+        "category": "CodeIgniter"
+    }
+]

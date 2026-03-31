@@ -1,7 +1,5 @@
 import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import { FaFacebookF, FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
-import { BiLogoGmail } from 'react-icons/bi';
 import { Link } from 'react-scroll';
 import resume from '../assets/Resume.pdf';
 import webBanner from '../assets/web-banner.jpg';
@@ -33,7 +31,29 @@ export const Main = () => {
                     >
                         Building<br />
                         Solutions<span style={{ color: 'var(--bd2)' }}>.</span><br />
-                        <span style={{ color: 'var(--t7)' }}>Code That Works</span>
+                        <TypeAnimation
+                            sequence={[
+                                'Code That Works',
+                                2000,
+                                'Built for Real Impact',
+                                2000,
+                                'Reliable & Maintainable',
+                                2000,
+                                'Engineered With Intent',
+                                2000,
+                                'From Idea to Production',
+                                2000,
+                            ]}
+                            wrapper='span'
+                            cursor
+                            repeat={Infinity}
+                            style={{
+                                color: 'var(--t7)',
+                                fontWeight: 700,
+                                display: 'inline-block',
+                                minHeight: '1.05em',
+                            }}
+                        />
                     </h1>
 
                     <p
@@ -43,81 +63,30 @@ export const Main = () => {
                         Every line written with intent, every project built for real-world impact
                     </p>
 
-                    <div
-                        style={{ color: 'var(--t4)' }}
-                        className='flex items-center gap-3 mb-10 text-base sm:text-lg fade-in-up'
-                    >
-                        <span>The</span>
-                        <TypeAnimation
-                            sequence={[
-                                'Web Developer', 1200,
-                                'Programmer', 1200,
-                                'Software Engineer', 1200,
-                                'Tech Enthusiast', 1200,
-                                'Code Composer', 1200,
-                                'Code Ninja', 1200,
-                                'Part-time Gamer', 1200,
-                            ]}
-                            wrapper='span'
-                            cursor={true}
-                            repeat={Infinity}
-                            style={{ color: 'var(--t1)', fontWeight: 600, display: 'inline-block' }}
-                        />
-                    </div>
-
                     <div className='flex flex-wrap gap-3 mb-14 fade-in-up'>
                         <Link to='contact' smooth duration={500} className='cursor-pointer'>
                             <button
-                                style={{ backgroundColor: 'var(--inv)', color: 'var(--inv-t)' }}
-                                className='px-6 py-3 rounded-full font-medium text-sm hover:opacity-80 transition-opacity'
+                                className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--bd)] bg-transparent text-[var(--t1)] transition-all duration-200 hover:bg-[var(--inv)] hover:text-[var(--inv-t)] hover:border-[var(--inv)]'
                             >
                                 Get In Touch
                             </button>
                         </Link>
                         <Link to='project' smooth duration={500} className='cursor-pointer'>
                             <button
-                                style={{ borderColor: 'var(--bd2)', color: 'var(--t3)' }}
-                                className='border px-6 py-3 rounded-full font-medium text-sm transition-all duration-200 hover:text-[var(--t1)] hover:border-[var(--t5)]'
+                                className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--bd)] bg-transparent text-[var(--t1)] transition-all duration-200 hover:bg-[var(--inv)] hover:text-[var(--inv-t)] hover:border-[var(--inv)]'
                             >
                                 View Projects
                             </button>
                         </Link>
                         <a href={resume} download='CV_Dhanu.pdf'>
                             <button
-                                style={{ borderColor: 'var(--bd2)', color: 'var(--t3)' }}
-                                className='border px-6 py-3 rounded-full font-medium text-sm transition-all duration-200 hover:text-[var(--t1)] hover:border-[var(--t5)]'
+                                className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--inv)] bg-[var(--inv)] text-[var(--inv-t)] transition-all duration-200 hover:bg-transparent hover:text-[var(--t3)] hover:border-[var(--bd)]'
                             >
                                 Download CV
                             </button>
                         </a>
                     </div>
 
-                    <div className='flex items-center gap-4 fade-in-up'>
-                        <span
-                            style={{ color: 'var(--bd2)' }}
-                            className='text-xs uppercase tracking-widest mr-2'
-                        >
-                            Connect
-                        </span>
-                        {[
-                            { href: 'mailto:satriodhanu123@gmail.com', icon: <BiLogoGmail size={20} /> },
-                            { href: 'https://www.facebook.com/dhanu.satriod', icon: <FaFacebookF size={17} /> },
-                            { href: 'https://www.instagram.com/dhnstr_/', icon: <FaInstagram size={17} /> },
-                            { href: 'https://www.linkedin.com/in/dhnstr/', icon: <FaLinkedin size={17} /> },
-                            { href: 'https://github.com/dhnstr', icon: <FaGithub size={17} /> },
-                        ].map(({ href, icon }, i) => (
-                            <a
-                                key={i}
-                                href={href}
-                                target='_blank'
-                                rel='noopener noreferrer'
-                                style={{ color: 'var(--t6)' }}
-                                className='hover:text-[var(--t1)] transition-colors'
-                            >
-                                {icon}
-                            </a>
-                        ))}
-                    </div>
                 </div>
 
                 <div className='order-1 lg:order-2 fade-in-up'>

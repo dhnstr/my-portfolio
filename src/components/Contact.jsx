@@ -2,14 +2,17 @@ import React from 'react';
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import { BiLogoGmail } from 'react-icons/bi';
 
-const marqueeItems = Array(12).fill(null).flatMap(() => [
-    "✦ Let's Build Something Together",
-    '✦ Available for Projects',
-    '✦ Open to Collaborate',
-]);
+    const marqueeItems = Array(12).fill(null).flatMap(() => [
+        "✦ Let's Build Something Great",
+        "✦ Open for Collaboration",
+        "✦ Available for Projects",
+        "✦ Turning Ideas Into Reality",
+        "✦ Let's Create Impact",
+        "✦ Ready to Collaborate",
+    ]);
 
 const socialLinks = [
-    { href: 'mailto:satriodhanu123@gmail.com', icon: <BiLogoGmail size={18} />, hoverColor: '#EA4335' },
+    { href: 'mailto:satriodhanu12@gmail.com', icon: <BiLogoGmail size={18} />, hoverColor: '#EA4335' },
     { href: 'https://www.facebook.com/dhanu.satriod', icon: <FaFacebookF size={16} />, hoverColor: '#1877F2' },
     { href: 'https://www.instagram.com/dhnstr_/', icon: <FaInstagram size={16} />, hoverColor: '#E04A83' },
     { href: 'https://www.linkedin.com/in/dhnstr/', icon: <FaLinkedin size={16} />, hoverColor: '#0A66C2' },
@@ -57,11 +60,11 @@ const Contact = () => {
                             </h2>
                             <p style={{ color: 'var(--t5)' }} className='text-base mb-3'>Just email me at</p>
                             <a
-                                href='mailto:satriodhanu123@gmail.com'
+                                href='mailto:satriodhanu12@gmail.com'
                                 style={{ color: 'var(--t1)' }}
                                 className='text-lg font-medium hover:text-[var(--t3)] transition-colors underline underline-offset-4'
                             >
-                                satriodhanu123@gmail.com
+                                satriodhanu12@gmail.com
                             </a>
 
                             <div className='flex items-center gap-3 mt-10'>
