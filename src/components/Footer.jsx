@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiArrowUp } from 'react-icons/fi';
 import logoBlack from '../assets/logo-black.png';
 import logoWhite from '../assets/logo-white.png';
 
 const Footer = ({ theme }) => {
+    const [showTop, setShowTop] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setShowTop(window.scrollY > 600);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return (
@@ -26,7 +35,7 @@ const Footer = ({ theme }) => {
                 <button
                     onClick={scrollToTop}
                     style={{ borderColor: 'var(--t2)', color: 'var(--t1)' }}
-                    className='border hover:border-[var(--t1)] hover:text-[var(--t1)] p-2.5 rounded-full transition-all duration-200'
+                    className={`border hover:border-[var(--t1)] hover:text-[var(--t1)] p-2.5 rounded-full transition-all duration-300 ${showTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3 pointer-events-none'}`}
                     aria-label='Scroll to top'
                 >
                     <FiArrowUp size={15} />

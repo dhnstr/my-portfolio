@@ -8,11 +8,16 @@ export const Main = () => {
     return (
         <div
             id='main'
-            className='relative px-6 pt-24 pb-14'
+            className='relative px-6 pt-24 pb-14 overflow-hidden'
         >
-            <div className='max-w-6xl mx-auto min-h-[72vh] md:min-h-[78vh] grid lg:grid-cols-2 gap-10 lg:gap-12 items-center'>
+            <div
+                aria-hidden
+                className='animate-glow absolute -top-40 -right-32 w-[520px] h-[520px] rounded-full pointer-events-none'
+                style={{ background: 'radial-gradient(circle, var(--bd-dim) 0%, transparent 65%)' }}
+            />
+            <div className='relative max-w-6xl mx-auto min-h-[72vh] md:min-h-[78vh] grid lg:grid-cols-2 gap-10 lg:gap-12 items-center'>
                 <div className='order-2 lg:order-1'>
-                    <div className='mb-8 fade-in-up'>
+                    <div className='mb-8 fade-in-up' style={{ animationDelay: '0.05s' }}>
                         <span
                             style={{ color: 'var(--t2)', borderColor: 'var(--bd)' }}
                             className='inline-flex items-center gap-2.5 text-sm border px-4 py-2 rounded-full'
@@ -27,7 +32,7 @@ export const Main = () => {
 
                     <h1
                         style={{ color: 'var(--t1)' }}
-                        className='text-5xl sm:text-7xl xl:text-[84px] font-bold leading-[1.05] mb-6 tracking-tight fade-in-up'
+                        className='text-5xl sm:text-7xl xl:text-[84px] font-bold leading-[1.05] mb-6 tracking-tight fade-in-up' style={{ animationDelay: '0.15s' }}
                     >
                         Building<br />
                         Solutions<span style={{ color: 'var(--bd2)' }}>.</span><br />
@@ -58,12 +63,12 @@ export const Main = () => {
 
                     <p
                         style={{ color: 'var(--t5)' }}
-                        className='text-lg sm:text-xl mb-10 max-w-xl leading-relaxed fade-in-up'
+                        className='text-lg sm:text-xl mb-10 max-w-xl leading-relaxed fade-in-up' style={{ animationDelay: '0.3s' }}
                     >
                         Every line written with intent, every project built for real-world impact
                     </p>
 
-                    <div className='flex flex-wrap gap-3 mb-14 fade-in-up'>
+                    <div className='flex flex-wrap gap-3 mb-14 fade-in-up' style={{ animationDelay: '0.45s' }}>
                         <Link to='contact' smooth duration={500} className='cursor-pointer'>
                             <button
                                 className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--bd)] bg-transparent text-[var(--t1)] transition-all duration-200 hover:bg-[var(--inv)] hover:text-[var(--inv-t)] hover:border-[var(--inv)]'
@@ -89,10 +94,10 @@ export const Main = () => {
 
                 </div>
 
-                <div className='order-1 lg:order-2 fade-in-up'>
+                <div className='order-1 lg:order-2 fade-in-up' style={{ animationDelay: '0.35s' }}>
                     <div
                         style={{ borderColor: 'var(--bd)' }}
-                        className='group relative rounded-2xl overflow-hidden border h-[280px] sm:h-[340px] lg:h-[520px]'
+                        className='animate-floaty group relative rounded-2xl overflow-hidden border h-[280px] sm:h-[340px] lg:h-[520px]'
                     >
                         <img
                             src={webBanner}

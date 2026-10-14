@@ -1,4 +1,5 @@
 import React from 'react';
+import Reveal from './Reveal';
 import skills from './data/skills.json';
 
 const Skill = () => {
@@ -20,8 +21,8 @@ const Skill = () => {
 
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
                     {skills.map((skill, index) => (
+                        <Reveal key={index} delay={index * 0.06}>
                         <div
-                            key={index}
                             style={{ backgroundColor: 'var(--bg2)', borderColor: 'var(--bd)' }}
                             className='rounded-2xl border px-6 py-5 hover:border-[var(--bd2)] transition-colors duration-200'
                         >
@@ -38,6 +39,7 @@ const Skill = () => {
                                 ))}
                             </div>
                         </div>
+                        </Reveal>
                     ))}
                 </div>
             </div>

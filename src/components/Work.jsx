@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import Reveal from './Reveal';
 import Workitem from './Workitem';
 import telkomLogo from '../assets/telkom-logo.png';
 import fmmLogo from '../assets/fmm-logo.png';
@@ -42,7 +43,9 @@ const Work = () => {
 
                 <div className='mt-10'>
                     {data.map((item, idx) => (
-                        <Workitem key={`${item.company}-${item.duration}`} isLast={idx === data.length - 1} {...item} />
+                        <Reveal key={`${item.company}-${item.duration}`} delay={Math.min(idx * 0.05, 0.2)}>
+                            <Workitem isLast={idx === data.length - 1} {...item} />
+                        </Reveal>
                     ))}
                 </div>
             </div>

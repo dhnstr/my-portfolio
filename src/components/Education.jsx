@@ -1,4 +1,5 @@
 import React from 'react';
+import Reveal from './Reveal';
 import Educationitem from './Educationitem';
 import educations from './data/educations.json';
 
@@ -26,11 +27,12 @@ const Education = () => {
 
                 <div className='mt-10'>
                     {educations.map((education, index) => (
+                        <Reveal key={`${education.school}-${education.year}`} delay={index * 0.08}>
                         <Educationitem
-                            key={`${education.school}-${education.year}`}
                             isLast={index === educations.length - 1}
                             {...education}
                         />
+                        </Reveal>
                     ))}
                 </div>
             </div>

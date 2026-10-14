@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
 import profileImage from '../assets/profile.png';
 
@@ -80,7 +81,12 @@ function About() {
                         </div>
                     </div>
 
-                    <div className='relative group'>
+                    <motion.div
+                        initial={{ opacity: 0, x: 32 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                        className='relative group'>
                         <div
                             // style={{ borderColor: 'var(--bd)' }}
                             className='relative rounded-2xl overflow-hidden'
@@ -101,7 +107,7 @@ function About() {
                             // style={{ borderColor: 'var(--bd)' }}
                             className='absolute -bottom-4 -right-4 w-full h-full rounded-2xl -z-10'
                         />
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

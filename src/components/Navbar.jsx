@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { BsMoon, BsSun } from 'react-icons/bs';
 import { Link } from 'react-scroll';
+import { motion, useScroll, useSpring } from 'motion/react';
 import resume from '../assets/Resume.pdf';
 import logoBlack from '../assets/logo-black.png';
 import logoWhite from '../assets/logo-white.png';
@@ -41,6 +42,8 @@ const ThemeToggle = ({ theme, toggleTheme }) => (
 
 const Navbar = ({ theme, toggleTheme }) => {
     const [nav, setNav] = useState(false);
+    const { scrollYProgress } = useScroll();
+    const progressX = useSpring(scrollYProgress, { stiffness: 120, damping: 25, restDelta: 0.001 });
 
     const navLinks = [
         { to: 'main',    label: 'Home' },
@@ -57,6 +60,13 @@ const Navbar = ({ theme, toggleTheme }) => {
             style={{ backgroundColor: 'var(--bg)' }}
             className='fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-[var(--bd)] backdrop-blur-md'
         >
+            <motion.div
+                style={{ scaleX: progressX }}
+                className='absolute bottom-0 left-0 right-0 h-[2px] origin-left'
+                aria-hidden
+            >
+                <div style={{ backgroundColor: 'var(--t1)' }} className='w-full h-full opacity-80' />
+            </motion.div>
             <div className='max-w-6xl mx-auto px-6 py-5 flex items-center justify-between'>
                 <Link to='main' spy smooth duration={500} className='cursor-pointer inline-flex items-center gap-2'>
                     <img
@@ -79,9 +89,10 @@ const Navbar = ({ theme, toggleTheme }) => {
                             duration={500}
                             activeClass='!text-[var(--t1)]'
                             style={{ color: 'var(--t4)' }}
-                            className='text-sm transition-colors duration-200 cursor-pointer hover:text-[var(--t1)]'
+                            className='relative text-sm transition-colors duration-200 cursor-pointer hover:text-[var(--t1)] group py-1'
                         >
                             {link.label}
+                            <span className='absolute left-0 -bottom-0.5 w-0 h-px transition-all duration-300 group-hover:w-full' style={{ backgroundColor: 'var(--t1)' }} />
                         </Link>
                     ))}
 

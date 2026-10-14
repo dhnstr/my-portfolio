@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import { BiLogoGmail } from 'react-icons/bi';
 
@@ -34,6 +35,17 @@ const Contact = () => {
                         <span
                             key={i}
                             style={{ color: 'var(--bd2)' }}
+                            className='text-2xl font-bold mx-10 tracking-tight'
+                        >
+                            {text}
+                        </span>
+                    ))}
+                </div>
+                <div className='flex whitespace-nowrap animate-marquee-reverse mt-1'>
+                    {marqueeItems.map((text, i) => (
+                        <span
+                            key={i}
+                            style={{ color: 'var(--bd-dim)' }}
                             className='text-2xl font-bold mx-10 tracking-tight'
                         >
                             {text}
@@ -87,7 +99,11 @@ const Contact = () => {
                             </div>
                         </div>
 
-                        <form
+                        <motion.form
+                            initial={{ opacity: 0, y: 28 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.15 }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                             action='https://getform.io/f/2e6ac70e-d6d0-47f1-8581-0ab3516f9174'
                             method='POST'
                             encType='multipart/form-data'
@@ -172,7 +188,7 @@ const Contact = () => {
                             >
                                 Send Message
                             </button>
-                        </form>
+                        </motion.form>
                     </div>
                 </div>
             </div>
