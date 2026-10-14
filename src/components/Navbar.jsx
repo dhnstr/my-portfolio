@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { BsMoon, BsSun } from 'react-icons/bs';
 import { Link } from 'react-scroll';

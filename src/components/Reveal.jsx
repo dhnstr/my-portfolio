@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'motion/react';
 
 const Reveal = ({ children, delay = 0, y = 28, x = 0, className }) => (

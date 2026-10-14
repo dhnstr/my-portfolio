@@ -5,6 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dhanu Satrio Darjanto | Portfolio</title>
+    <script>
+      // Set preferensi motion sebelum paint pertama — biar nggak ada kedip
+      // dan konsisten dengan pilihan terakhir user (tombol "Motion" di footer).
+      try {
+        document.documentElement.setAttribute(
+          'data-motion',
+          localStorage.getItem('portfolio-motion') === 'off' ? 'off' : 'on'
+        );
+      } catch (e) {
+        document.documentElement.setAttribute('data-motion', 'on');
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

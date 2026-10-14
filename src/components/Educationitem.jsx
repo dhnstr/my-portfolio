@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Educationitem = ({ school, degree, fieldOfStudy, year, highlights, isLast }) => {
     const items = highlights?.length

@@ -1,16 +1,41 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import { BiLogoGmail } from 'react-icons/bi';
 
-    const marqueeItems = Array(12).fill(null).flatMap(() => [
-        "✦ Let's Build Something Great",
-        "✦ Open for Collaboration",
-        "✦ Available for Projects",
-        "✦ Turning Ideas Into Reality",
-        "✦ Let's Create Impact",
-        "✦ Ready to Collaborate",
-    ]);
+const marqueeItems = [
+    "✦ Let's Build Something Great",
+    "✦ Open for Collaboration",
+    "✦ Available for Projects",
+    "✦ Turning Ideas Into Reality",
+    "✦ Let's Create Impact",
+    "✦ Ready to Collaborate",
+];
+
+// Satu set item = satu jalur. Setiap baris dirender 6 set (3 pasang) supaya
+// animasi translateX(-50%) nyambung mulus — pergeseran 50% (~5,6k px) selalu
+// lebih lebar dari viewport, aman sampai layar 4K.
+const MarqueeRow = ({ dim }) => (
+    <div aria-hidden className='flex shrink-0 items-center gap-8 pr-8 sm:gap-10 sm:pr-10'>
+        {marqueeItems.map((text, i) => (
+            <span
+                key={i}
+                style={{ color: dim ? 'var(--bd-dim)' : 'var(--bd2)' }}
+                className='whitespace-nowrap text-2xl font-bold tracking-tight'
+            >
+                {text}
+            </span>
+        ))}
+    </div>
+);
+
+// Render n set item berurutan (total track = n * lebar set).
+const MarqueeContent = ({ sets, dim }) => (
+    <>
+        {Array.from({ length: sets }, (_, s) => (
+            <MarqueeRow key={s} dim={dim} />
+        ))}
+    </>
+);
 
 const socialLinks = [
     { href: 'mailto:satriodhanu12@gmail.com', icon: <BiLogoGmail size={18} />, hoverColor: '#EA4335' },
@@ -25,36 +50,55 @@ const inputClass =
 
 const Contact = () => {
     return (
-        <div id='contact'>
+        <div id='contact' className='relative overflow-hidden'>
+
+            {/* ── Background animasi (grid bergerak + aura + orb mengambang) ── */}
+            <div aria-hidden className='pointer-events-none absolute inset-0 overflow-hidden'>
+                {/* Grid halus yang bergerak pelan */}
+                <div
+                    className='animate-grid-pan absolute inset-0 opacity-[0.35]'
+                    style={{
+                        backgroundImage:
+                            'linear-gradient(var(--bd-dim) 1px, transparent 1px), linear-gradient(90deg, var(--bd-dim) 1px, transparent 1px)',
+                        backgroundSize: '64px 64px',
+                        maskImage: 'radial-gradient(ellipse 90% 75% at 50% 40%, black 25%, transparent 78%)',
+                        WebkitMaskImage: 'radial-gradient(ellipse 90% 75% at 50% 40%, black 25%, transparent 78%)',
+                    }}
+                />
+                {/* Aura lembut berdenyut di tengah */}
+                <div
+                    className='animate-aura absolute left-1/2 top-1/2 h-[560px] w-[860px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl'
+                    style={{ background: 'radial-gradient(closest-side, var(--bd-dim), transparent 72%)' }}
+                />
+                {/* Dua orb monokrom yang bergerak berlawanan arah */}
+                <div
+                    className='animate-drift absolute -left-24 top-10 h-72 w-72 rounded-full opacity-70 blur-3xl'
+                    style={{ background: 'radial-gradient(circle, var(--bd-dim), transparent 70%)' }}
+                />
+                <div
+                    className='animate-drift-reverse absolute -right-24 bottom-0 h-80 w-80 rounded-full opacity-70 blur-3xl'
+                    style={{ background: 'radial-gradient(circle, var(--bd-dim), transparent 70%)' }}
+                />
+            </div>
+
+            {/* ── Band marquee (2 baris, arah berlawanan, pause saat hover) ── */}
             <div
-                style={{ borderColor: 'var(--bd-dim)' }}
-                className='overflow-hidden border-y py-5'
+                className='marquee-band relative overflow-hidden border-y py-5'
+                style={{
+                    borderColor: 'var(--bd-dim)',
+                    maskImage: 'linear-gradient(90deg, transparent, black 12%, black 88%, transparent)',
+                    WebkitMaskImage: 'linear-gradient(90deg, transparent, black 12%, black 88%, transparent)',
+                }}
             >
-                <div className='flex whitespace-nowrap animate-marquee'>
-                    {marqueeItems.map((text, i) => (
-                        <span
-                            key={i}
-                            style={{ color: 'var(--bd2)' }}
-                            className='text-2xl font-bold mx-10 tracking-tight'
-                        >
-                            {text}
-                        </span>
-                    ))}
+                <div className='marquee-track flex w-max items-center'>
+                    <MarqueeContent sets={6} />
                 </div>
-                <div className='flex whitespace-nowrap animate-marquee-reverse mt-1'>
-                    {marqueeItems.map((text, i) => (
-                        <span
-                            key={i}
-                            style={{ color: 'var(--bd-dim)' }}
-                            className='text-2xl font-bold mx-10 tracking-tight'
-                        >
-                            {text}
-                        </span>
-                    ))}
+                <div className='marquee-track reverse mt-1 flex w-max items-center'>
+                    <MarqueeContent sets={6} dim />
                 </div>
             </div>
 
-            <div className='py-28 px-6'>
+            <div className='relative py-28 px-6'>
                 <div className='max-w-6xl mx-auto'>
                     <div className='grid md:grid-cols-2 gap-16 items-start'>
                         <div>

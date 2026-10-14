@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Workitem = ({ company, role, duration, highlights, logo, isLast }) => {
     return (

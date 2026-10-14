@@ -1,11 +1,10 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { TypeAnimation } from 'react-type-animation';
 import profileImage from '../assets/profile.png';
 
 function About() {
     return (
-        <div id='about' className='py-28 px-6'>
+        <div id='about' className='py-28 px-6 overflow-x-clip'>
             <div className='max-w-6xl mx-auto'>
                 <div className='grid md:grid-cols-2 gap-16 items-center'>
                     <div>
@@ -20,7 +19,7 @@ function About() {
                             style={{ color: 'var(--t1)' }}
                             className='text-4xl sm:text-5xl font-bold mb-6 leading-tight'
                         >
-                            Hey there 👋 I'm Dhanu your go-to{' '}
+                            Hey there 👋 I&apos;m Dhanu your go-to{' '}
                             <TypeAnimation
                                 sequence={[
                                     'Web Developer', 1200,

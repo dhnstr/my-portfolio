@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import logoBlack from './assets/logo-black.png';
 import logoWhite from './assets/logo-white.png';
 import Navbar from './components/Navbar';
@@ -13,9 +13,40 @@ import Footer from './components/Footer';
 
 function App() {
     const [theme, setTheme] = useState('dark');
+    const [motion, setMotion] = useState(() => {
+        // Baca preferensi sekali di awal (lazy init), selaras dengan script
+        // pre-paint di index.html - biar tidak ada flicker ON->OFF->ON saat mount.
+        try {
+            return localStorage.getItem('portfolio-motion') !== 'off';
+        } catch {
+            return true;
+        }
+    });
 
     const toggleTheme = () =>
         setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+
+    // Motion toggle — kontrol animasi dekoratif (marquee, orb, grid, dll).
+    // Default: NYALA, biar portfolio langsung "hidup" (termasuk di OS yang
+    // mematikan animasi). User bisa matiin lewat tombol "Motion" di footer;
+    // pilihannya disimpan di localStorage dan dipakai lagi di kunjungan berikutnya.
+
+    useEffect(() => {
+        // Set eksplisit 'on'/'off' — CSS pakai [data-motion="off"] buat berhentiin animasi.
+        document.documentElement.setAttribute('data-motion', motion ? 'on' : 'off');
+    }, [motion]);
+
+    const toggleMotion = () => {
+        setMotion((prev) => {
+            const next = !prev;
+            try {
+                localStorage.setItem('portfolio-motion', next ? 'on' : 'off');
+            } catch {
+                /* localStorage bisa diblokir — abaikan */
+            }
+            return next;
+        });
+    };
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
@@ -40,7 +71,7 @@ function App() {
             <Education />
             <Work />
             <Contact />
-            <Footer theme={theme} />
+            <Footer theme={theme} motion={motion} toggleMotion={toggleMotion} />
         </div>
     );
 }

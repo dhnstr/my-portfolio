@@ -1,4 +1,3 @@
-import React from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { Link } from 'react-scroll';
 import resume from '../assets/Resume.pdf';
@@ -31,8 +30,8 @@ export const Main = () => {
                     </div>
 
                     <h1
-                        style={{ color: 'var(--t1)' }}
-                        className='text-5xl sm:text-7xl xl:text-[84px] font-bold leading-[1.05] mb-6 tracking-tight fade-in-up' style={{ animationDelay: '0.15s' }}
+                        style={{ color: 'var(--t1)', animationDelay: '0.15s' }}
+                        className='text-5xl sm:text-7xl xl:text-[84px] font-bold leading-[1.05] mb-6 tracking-tight fade-in-up'
                     >
                         Building<br />
                         Solutions<span style={{ color: 'var(--bd2)' }}>.</span><br />
@@ -62,8 +61,8 @@ export const Main = () => {
                     </h1>
 
                     <p
-                        style={{ color: 'var(--t5)' }}
-                        className='text-lg sm:text-xl mb-10 max-w-xl leading-relaxed fade-in-up' style={{ animationDelay: '0.3s' }}
+                        style={{ color: 'var(--t5)', animationDelay: '0.3s' }}
+                        className='text-lg sm:text-xl mb-10 max-w-xl leading-relaxed fade-in-up'
                     >
                         Every line written with intent, every project built for real-world impact
                     </p>

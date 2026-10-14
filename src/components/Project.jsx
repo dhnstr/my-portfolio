@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Projectitem from './Projectitem';
 import web1 from '../assets/web-lingkar-budaya.jpeg';
 import web3 from '../assets/web-portfolio.png';
@@ -61,7 +61,7 @@ const Project = () => {
                         Project Showcase
                     </h2>
                     <p style={{ color: 'var(--t5)' }} className='text-base max-w-2xl leading-relaxed'>
-                        These are some of the projects I've poured my time and effort into. Each one tells a different story, all sharing the same goal: building reliable, efficient, and meaningful software.
+                        These are some of the projects I&apos;ve poured my time and effort into. Each one tells a different story, all sharing the same goal: building reliable, efficient, and meaningful software.
                     </p>
                 </div>
 

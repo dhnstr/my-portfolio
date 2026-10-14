@@ -1,4 +1,3 @@
-import React from 'react';
 import Reveal from './Reveal';
 import Educationitem from './Educationitem';
 import educations from './data/educations.json';
