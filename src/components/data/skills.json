@@ -9,7 +9,7 @@
     },
     {
         "category": "Frameworks & Libraries",
-        "skills": ["React", "Next.js", "Tailwind CSS", "Laravel", "CodeIgniter"]
+        "skills": ["Astro", "React", "Next.js", "Tailwind CSS", "Laravel", "CodeIgniter"]
     },
     {
         "category": "Databases",
@@ -18,5 +18,9 @@
     {
         "category": "Tools",
         "skills": ["Git", "GitHub", "VS Code", "Terminal"]
+    },
+    {
+        "category": "Soft Skills",
+        "skills": ["Teamwork", "Time Management", "Problem Solving", "Analytical Skills"]
     }
 ]

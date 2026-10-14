@@ -58,7 +58,7 @@ export const Main = () => {
 
                     <p
                         style={{ color: 'var(--t5)' }}
-                        className='text-lg sm:text-xl mb-10 max-w-lg leading-relaxed fade-in-up'
+                        className='text-lg sm:text-xl mb-10 max-w-xl leading-relaxed fade-in-up'
                     >
                         Every line written with intent, every project built for real-world impact
                     </p>

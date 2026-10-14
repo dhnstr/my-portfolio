@@ -19,7 +19,7 @@ const Footer = ({ theme }) => {
                         Dhanu<span style={{ color: 'var(--t6)' }}> Satrio<span style={{ color: 'var(--t1)' }}> Darjanto</span></span>
                     </p> */}
                     <p style={{ color: 'var(--t2)' }} className='text-xs mt-1'>
-                        Made with too much coffee ☕ • 2024
+                        Made with too much coffee ☕ • 2026
                     </p>
                 </div>
 

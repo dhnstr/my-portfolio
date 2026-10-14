@@ -125,7 +125,7 @@ const Projectitem = ({ img, title, tech, type, year, duration, index = 0 }) => {
                 variants={cardVariants}
                 custom={index}
                 style={{ backgroundColor: 'var(--bg2)', borderColor: 'var(--bd)' }}
-                className='group relative overflow-hidden rounded-2xl border hover:border-[var(--bd2)] transition-all duration-300'
+                className='group relative overflow-hidden rounded-2xl border hover:border-[var(--bd2)] transition-all duration-300 flex flex-col'
             >
                 <div className='relative overflow-hidden h-52'>
                     <img
@@ -144,11 +144,11 @@ const Projectitem = ({ img, title, tech, type, year, duration, index = 0 }) => {
                     </div>
                 </div>
 
-                <div className='p-6'>
+                <div className='p-6 flex flex-col flex-1'>
                     <h3 style={{ color: 'var(--t1)' }} className='font-bold text-xl mb-1'>{title}</h3>
                     <p style={{ color: 'var(--t2)' }} className='text-sm mb-5'>{tech}</p>
 
-                    <div style={{ borderColor: 'var(--bd)' }} className='grid grid-cols-2 gap-4 pt-4 border-t'>
+                    <div style={{ borderColor: 'var(--bd)' }} className='grid grid-cols-2 gap-4 pt-4 mb-5 border-t'>
                         <div>
                             <p style={{ color: 'var(--t2)' }} className='text-xs mb-1 uppercase tracking-wider'>Type</p>
                             <p style={{ color: 'var(--t3)' }} className='text-sm'>{type}</p>
@@ -163,7 +163,7 @@ const Projectitem = ({ img, title, tech, type, year, duration, index = 0 }) => {
                         type='button'
                         onClick={open}
                         style={{ borderColor: 'var(--bd)' }}
-                        className='mt-5 text-xs border px-4 py-2 rounded-full text-[var(--t3)] hover:bg-[var(--inv)] hover:text-[var(--inv-t)] hover:border-[var(--inv)] transition-all duration-200'
+                        className='mt-auto text-xs border px-4 py-2 rounded-full text-[var(--t3)] hover:bg-[var(--inv)] hover:text-[var(--inv-t)] hover:border-[var(--inv)] transition-all duration-200 self-start'
                     >
                         See Project →
                     </button>
