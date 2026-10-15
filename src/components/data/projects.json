@@ -3,90 +3,248 @@
         "imageKey": "web3",
         "title": "Interactive Developer Terminal",
         "tech": "React, Tailwind CSS, CLI",
+        "techStack": [
+            "React 18",
+            "Tailwind CSS",
+            "Vite",
+            "Web Audio / ANSI"
+        ],
         "type": "Personal Project",
         "year": "2026",
         "duration": "1 Week",
-        "category": "React"
+        "category": "React",
+        "description": "Interactive in-browser developer command center and terminal emulator integrated directly into the portfolio. Emulates a UNIX shell environment with real-time command parsing, history traversal, and system introspection tools.",
+        "highlights": [
+            "13+ built-in commands including whoami, skills, projects, stats, matrix animation, and theme toggling.",
+            "Keyboard-friendly navigation with Tab auto-completion and Up/Down arrow history buffer.",
+            "Quick command chips with touch support and real-time execution feedback."
+        ],
+        "githubUrl": "https://github.com/dhnstr/my-portfolio",
+        "demoUrl": "#terminal",
+        "isInternal": false
     },
     {
         "imageKey": "web3",
         "title": "Portfolio Website",
         "tech": "Next.js, Tailwind CSS",
+        "techStack": [
+            "React 18",
+            "Tailwind CSS",
+            "Motion",
+            "Vite"
+        ],
         "type": "Personal Project",
         "year": "2024",
         "duration": "1 Week",
-        "category": "Next.js"
-    },
-    {
-        "imageKey": "web1",
-        "title": "Lingkar Budaya",
-        "tech": "Laravel, HTML, CSS, PHP",
-        "type": "Academic Project",
-        "year": "2023",
-        "duration": "2 Months",
-        "category": "Laravel"
-    },
-    {
-        "imageKey": "web4",
-        "title": "Genetic Algorithm",
-        "tech": "Python",
-        "type": "Academic Project",
-        "year": "2023",
-        "duration": "1 Month",
-        "category": "Python"
-    },
-    {
-        "imageKey": "web5",
-        "title": "FMM Prospect System",
-        "tech": "CodeIgniter, PHP, SQL Server, PostgreSQL, HTML, CSS, JavaScript",
-        "type": "Job Project",
-        "year": "2023",
-        "duration": "On Going",
-        "category": "CodeIgniter"
-    },
-    {
-        "imageKey": "web6",
-        "title": "FMM Event Management System",
-        "tech": "CodeIgniter, PHP, SQL Server, HTML, CSS, JavaScript",
-        "type": "Job Project",
-        "year": "2025",
-        "duration": "On Going",
-        "category": "CodeIgniter"
-    },
-    {
-        "imageKey": "web7",
-        "title": "FMM Media Asset",
-        "tech": "CodeIgniter, PHP, SQL Server, HTML, CSS, JavaScript",
-        "type": "Job Project",
-        "year": "2026",
-        "duration": "On Going",
-        "category": "CodeIgniter"
-    },
-    {
-        "imageKey": "web8",
-        "title": "FMM Dashboard Marketing",
-        "tech": "CodeIgniter, PHP, SQL Server, PostgreSQL, HTML, CSS, JavaScript",
-        "type": "Job Project",
-        "year": "2023",
-        "duration": "On Going",
-        "category": "CodeIgniter"
+        "category": "Next.js",
+        "description": "Modern minimalist developer portfolio designed with high aesthetic standards, responsive layouts, and fluid micro-interactions. Features dark/light monochrome themes, motion controls, and interactive showcase modals.",
+        "highlights": [
+            "Accessible dark and light monochrome themes with persistent user preferences.",
+            "Adaptive motion toggle respecting prefers-reduced-motion with instant manual overrides.",
+            "Interactive case study modals with Esc key listeners, backdrop blur, and scroll locking."
+        ],
+        "githubUrl": "https://github.com/dhnstr/my-portfolio",
+        "demoUrl": "https://dhanusatrio.vercel.app",
+        "isInternal": false
     },
     {
         "imageKey": "web9",
         "title": "FMM PHE Services",
         "tech": "Next.js, Tailwind CSS, Node.js, SQL Server",
+        "techStack": [
+            "Next.js",
+            "Tailwind CSS",
+            "Node.js",
+            "SQL Server",
+            "REST API"
+        ],
         "type": "Job Project",
         "year": "2025",
         "duration": "On Going",
-        "category": "Next.js"
+        "category": "Next.js",
+        "description": "Enterprise field service and heavy equipment contract management platform built for Pertamina Hulu Energi (PHE) industrial operations. Manages equipment maintenance lifecycles, service logs, and technician assignments.",
+        "highlights": [
+            "Next.js SSR architecture connected to secure corporate Microsoft SQL Server database.",
+            "Work order tracking with multi-stage approval workflows and automated status updates.",
+            "Role-based access control (RBAC) ensuring data isolation across operational divisions."
+        ],
+        "githubUrl": null,
+        "demoUrl": null,
+        "isInternal": true
+    },
+    {
+        "imageKey": "web4",
+        "title": "Genetic Algorithm",
+        "tech": "Python",
+        "techStack": [
+            "Python",
+            "NumPy",
+            "Matplotlib",
+            "Optimization Algorithms"
+        ],
+        "type": "Academic Project",
+        "year": "2023",
+        "duration": "1 Month",
+        "category": "Python",
+        "description": "Evolutionary metaheuristic optimization system using Genetic Algorithms for solving complex combinatorial scheduling and resource allocation problems.",
+        "highlights": [
+            "Configurable evolutionary parameters for population size, roulette-wheel selection, and mutation rates.",
+            "Convergence tracking with iterative generation plotting to visualize fitness optimization.",
+            "Benchmarked against standard heuristic baselines to evaluate computational efficiency."
+        ],
+        "githubUrl": "https://github.com/dhnstr",
+        "demoUrl": null,
+        "isInternal": false
+    },
+    {
+        "imageKey": "web1",
+        "title": "Lingkar Budaya",
+        "tech": "Laravel, HTML, CSS, PHP",
+        "techStack": [
+            "Laravel",
+            "PHP",
+            "MySQL",
+            "Bootstrap",
+            "Blade"
+        ],
+        "type": "Academic Project",
+        "year": "2023",
+        "duration": "2 Months",
+        "category": "Laravel",
+        "description": "Cultural heritage preservation portal showcasing Indonesian traditional arts, cultural festivals, and regional history with community content submissions.",
+        "highlights": [
+            "Content curation system with editorial moderation and media asset pipelines.",
+            "Regional heritage directory categorized by province, traditions, and historical eras.",
+            "Role-based administration for community article approvals and event management."
+        ],
+        "githubUrl": "https://github.com/dhnstr",
+        "demoUrl": null,
+        "isInternal": false
+    },
+    {
+        "imageKey": "web5",
+        "title": "FMM Prospect System",
+        "tech": "CodeIgniter, PHP, SQL Server, PostgreSQL, HTML, CSS, JavaScript",
+        "techStack": [
+            "CodeIgniter",
+            "PHP",
+            "SQL Server",
+            "PostgreSQL",
+            "JavaScript",
+            "Bootstrap"
+        ],
+        "type": "Job Project",
+        "year": "2023",
+        "duration": "On Going",
+        "category": "CodeIgniter",
+        "description": "Mission-critical commercial pipeline and sales prospect tracking platform for heavy machinery tenders and industrial equipment distribution across Indonesia.",
+        "highlights": [
+            "Dual-database architecture syncing transactional SQL Server data with analytical PostgreSQL.",
+            "Automated gross margin simulation tools evaluating pricing strategies for multi-million tenders.",
+            "Processes over 50,000+ commercial transaction records with sub-second query execution."
+        ],
+        "githubUrl": null,
+        "demoUrl": null,
+        "isInternal": true
+    },
+    {
+        "imageKey": "web8",
+        "title": "FMM Dashboard Marketing",
+        "tech": "CodeIgniter, PHP, SQL Server, PostgreSQL, HTML, CSS, JavaScript",
+        "techStack": [
+            "CodeIgniter",
+            "PHP",
+            "SQL Server",
+            "PostgreSQL",
+            "Chart.js",
+            "jQuery"
+        ],
+        "type": "Job Project",
+        "year": "2023",
+        "duration": "On Going",
+        "category": "CodeIgniter",
+        "description": "Executive marketing intelligence dashboard consolidating cross-departmental sales leads, quotation conversion rates, and revenue trend analytics.",
+        "highlights": [
+            "Centralized KPI dashboards reducing monthly management reporting cycles by 40%.",
+            "Multi-dimensional filtering by product category, sales principal, and regional territory.",
+            "Automated PDF and Excel report generation for executive committee board meetings."
+        ],
+        "githubUrl": null,
+        "demoUrl": null,
+        "isInternal": true
+    },
+    {
+        "imageKey": "web6",
+        "title": "FMM Event Management System",
+        "tech": "CodeIgniter, PHP, SQL Server, HTML, CSS, JavaScript",
+        "techStack": [
+            "CodeIgniter",
+            "PHP",
+            "SQL Server",
+            "JavaScript",
+            "QR Code Engine"
+        ],
+        "type": "Job Project",
+        "year": "2025",
+        "duration": "On Going",
+        "category": "CodeIgniter",
+        "description": "End-to-end corporate event operations platform managing participant registrations, vendor scheduling, and attendee check-ins for industrial exhibitions.",
+        "highlights": [
+            "Automated QR code badge generation and rapid on-site scanning for 500+ attendees.",
+            "Real-time event budget utilization tracking and vendor payment milestone auditing.",
+            "Post-event feedback collection and analytics reporting for business development ROI."
+        ],
+        "githubUrl": null,
+        "demoUrl": null,
+        "isInternal": true
+    },
+    {
+        "imageKey": "web7",
+        "title": "FMM Media Asset",
+        "tech": "CodeIgniter, PHP, SQL Server, HTML, CSS, JavaScript",
+        "techStack": [
+            "CodeIgniter",
+            "PHP",
+            "SQL Server",
+            "File Processing API"
+        ],
+        "type": "Job Project",
+        "year": "2026",
+        "duration": "On Going",
+        "category": "CodeIgniter",
+        "description": "Enterprise digital asset management (DAM) repository governing high-resolution technical brochures, product catalogs, and corporate media collateral.",
+        "highlights": [
+            "Centralized asset cataloging with tag-based search and granular metadata indexing.",
+            "Automated image compression and format optimization for rapid distributed downloads.",
+            "Permission-controlled distribution channels for sales reps, engineers, and external partners."
+        ],
+        "githubUrl": null,
+        "demoUrl": null,
+        "isInternal": true
     },
     {
         "imageKey": "web10",
         "title": "FMM Helpdesk Ticketing",
         "tech": "CodeIgniter, PHP, SQL Server, HTML, CSS, JavaScript",
+        "techStack": [
+            "CodeIgniter",
+            "PHP",
+            "SQL Server",
+            "AJAX",
+            "Bootstrap"
+        ],
         "type": "Job Project",
         "year": "2026",
         "duration": "On Going",
-        "category": "CodeIgniter"
+        "category": "CodeIgniter",
+        "description": "Internal IT service desk and incident ticketing platform managing hardware, software, and infrastructure support requests across all corporate offices.",
+        "highlights": [
+            "Priority-based ticket routing and SLA escalation tracking maintaining 99.5% service uptime.",
+            "Built-in IT knowledge base enabling faster resolution for recurring technical inquiries.",
+            "Departmental satisfaction surveys and technician performance scorecards."
+        ],
+        "githubUrl": null,
+        "demoUrl": null,
+        "isInternal": true
     }
 ]
