@@ -1,5 +1,6 @@
 import { TypeAnimation } from 'react-type-animation';
 import { Link } from 'react-scroll';
+import { BsTerminal } from 'react-icons/bs';
 import resume from '../assets/Resume.pdf';
 import webBanner from '../assets/web-banner.jpg';
 
@@ -68,12 +69,12 @@ export const Main = () => {
                     </p>
 
                     <div className='flex flex-wrap gap-3 mb-14 fade-in-up' style={{ animationDelay: '0.45s' }}>
-                        <Link to='showreel' smooth duration={500} className='cursor-pointer'>
+                        <Link to='terminal' smooth duration={500} className='cursor-pointer'>
                             <button
                                 className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--inv)] bg-[var(--inv)] text-[var(--inv-t)] transition-all duration-200 hover:bg-transparent hover:text-[var(--t3)] hover:border-[var(--bd)] flex items-center gap-2'
                             >
-                                <span className='w-2 h-2 rounded-full bg-sky-400 animate-pulse' />
-                                Watch Showreel
+                                <BsTerminal size={15} />
+                                Launch Terminal
                             </button>
                         </Link>
                         <Link to='project' smooth duration={500} className='cursor-pointer'>

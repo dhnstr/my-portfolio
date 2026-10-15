@@ -1,12 +1,12 @@
 [
     {
         "imageKey": "web3",
-        "title": "Interactive Video Showreel",
-        "tech": "Remotion, React, Tailwind CSS",
+        "title": "Interactive Developer Terminal",
+        "tech": "React, Tailwind CSS, CLI",
         "type": "Personal Project",
         "year": "2026",
         "duration": "1 Week",
-        "category": "Remotion"
+        "category": "React"
     },
     {
         "imageKey": "web3",

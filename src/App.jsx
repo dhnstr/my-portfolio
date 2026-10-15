@@ -3,7 +3,7 @@ import logoBlack from './assets/logo-black.png';
 import logoWhite from './assets/logo-white.png';
 import Navbar from './components/Navbar';
 import Main from './components/Main';
-import Showreel from './components/Showreel';
+import Terminal from './components/Terminal';
 import Project from './components/Project';
 import About from './components/About';
 import Skill from './components/Skill';
@@ -66,7 +66,7 @@ function App() {
         <div className='bg-[var(--bg)] min-h-screen'>
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <Main />
-            <Showreel motion={motion} />
+            <Terminal theme={theme} toggleTheme={toggleTheme} />
             <Project />
             <About />
             <Skill />

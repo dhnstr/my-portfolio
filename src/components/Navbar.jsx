@@ -47,7 +47,7 @@ const Navbar = ({ theme, toggleTheme }) => {
 
     const navLinks = [
         { to: 'main',    label: 'Home' },
-        { to: 'showreel', label: 'Showreel' },
+        { to: 'terminal', label: 'Terminal' },
         { to: 'project', label: 'Projects' },
         { to: 'about',   label: 'About' },
         { to: 'skill',   label: 'Stack' },

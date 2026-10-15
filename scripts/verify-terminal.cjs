@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 const CHROME = path.join(os.homedir(), 'AppData', 'Local', 'ms-playwright', 'chromium-1243', 'chrome-win64', 'chrome.exe');
-const URL = process.argv[2] || 'http://localhost:5199/';
+let TARGET_URL = process.argv[2];
 const SCRATCH = process.env.HERMES_SCRATCH_DIR || path.join(os.homedir(), '.hermes', 'cache', 'scratch');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -23,6 +23,7 @@ let cleanupDone = false;
 let chrome = null;
 let profile = null;
 let ws = null;
+let previewProcess = null;
 
 const TASKKILL = path.join(process.env.SystemRoot || 'C:\\Windows', 'System32', 'taskkill.exe');
 
@@ -48,8 +49,13 @@ function cleanup() {
   try { if (ws) ws.close(); } catch { }
   if (chrome && chrome.pid) {
     const t = spawnSync(TASKKILL, ['/PID', String(chrome.pid), '/T', '/F'], { encoding: 'utf8', timeout: 15000 });
-    console.log('[cleanup] taskkill pid=' + chrome.pid + ' status=' + t.status);
+    console.log('[cleanup] taskkill chrome pid=' + chrome.pid + ' status=' + t.status);
     try { chrome.kill(); } catch { }
+  }
+  if (previewProcess && previewProcess.pid) {
+    const t = spawnSync(TASKKILL, ['/PID', String(previewProcess.pid), '/T', '/F'], { encoding: 'utf8', timeout: 15000 });
+    console.log('[cleanup] taskkill preview pid=' + previewProcess.pid + ' status=' + t.status);
+    try { previewProcess.kill(); } catch { }
   }
   const left = killOwnedChrome();
   console.log('[cleanup] OWNED_CHROME_LEFT=' + left);
@@ -63,9 +69,47 @@ process.on('exit', cleanup);
 process.on('SIGINT', () => { cleanup(); process.exit(1); });
 process.on('SIGTERM', () => { cleanup(); process.exit(1); });
 
+async function isServerRunning(url) {
+  try {
+    const res = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(1500) });
+    return res.ok || res.status === 200 || res.status === 304;
+  } catch {
+    return false;
+  }
+}
+
 async function main() {
+  // Check if target URL is provided or already alive
+  if (!TARGET_URL) {
+    TARGET_URL = 'http://localhost:5199/';
+  }
+
+  const serverAlive = await isServerRunning(TARGET_URL);
+  if (!serverAlive) {
+    const previewPort = await freePort();
+    TARGET_URL = `http://127.0.0.1:${previewPort}/`;
+    console.log(`[0] Spawning vite preview server on port ${previewPort}`);
+    const projectRoot = path.resolve(__dirname, '..');
+    const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+    previewProcess = spawn(npxCmd, ['vite', 'preview', '--port', String(previewPort), '--strictPort'], {
+      cwd: projectRoot,
+      stdio: 'pipe',
+      detached: false
+    });
+
+    let previewReady = false;
+    for (let i = 0; i < 40; i++) {
+      await sleep(300);
+      if (await isServerRunning(TARGET_URL)) {
+        previewReady = true;
+        break;
+      }
+    }
+    if (!previewReady) throw new Error('Vite preview server failed to start on ' + TARGET_URL);
+  }
+
   fs.mkdirSync(SCRATCH, { recursive: true });
-  profile = fs.mkdtempSync(path.join(SCRATCH, 'verify-showreel-'));
+  profile = fs.mkdtempSync(path.join(SCRATCH, 'verify-terminal-'));
   const port = await freePort();
   chrome = spawn(CHROME, ['--headless=new', `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, '--no-first-run', '--disable-gpu', 'about:blank'], { stdio: 'ignore' });
 
@@ -116,32 +160,83 @@ async function main() {
   await send('Page.enable');
   await send('Runtime.enable');
 
-  console.log('[1] Navigating to', URL);
-  await send('Page.navigate', { url: URL }, 20000);
+  console.log('[1] Navigating to', TARGET_URL);
+  await send('Page.navigate', { url: TARGET_URL }, 20000);
 
-  // Wait for #showreel section to render
+  // Wait for #terminal section to render
   let ready = false;
   for (let i = 0; i < 60; i++) {
     await sleep(300);
-    ready = await ev('document.readyState === "complete" && !!document.querySelector("#showreel")').catch(() => false);
+    ready = await ev('document.readyState === "complete" && !!document.querySelector("#terminal")').catch(() => false);
     if (ready) break;
   }
-  if (!ready) throw new Error('Timeout waiting for #showreel section to render');
+  if (!ready) throw new Error('Timeout waiting for #terminal section to render');
 
-  console.log('[2] Checking DOM elements for Remotion Showreel');
+  console.log('[2] Checking DOM elements for Interactive Developer Terminal');
   const domCheck = await ev(`({
-    showreelSection: !!document.querySelector("#showreel"),
-    remotionPlayer: !!document.querySelector("#showreel [data-remotion-player]") || !!document.querySelector("#showreel video") || !!document.querySelector("#showreel .aspect-video"),
-    navbarShowreelLink: Array.from(document.querySelectorAll("nav a, nav button, nav div")).some(el => (el.textContent || "").includes("Showreel")),
-    sceneButtons: document.querySelectorAll("#showreel button").length,
-    bentoCards: document.querySelectorAll("#showreel .grid > div").length,
+    terminalSection: !!document.querySelector("#terminal"),
+    terminalInput: !!document.querySelector("#terminal input"),
+    navbarTerminalLink: Array.from(document.querySelectorAll("nav a, nav button, nav div")).some(el => (el.textContent || "").includes("Terminal")),
+    quickChipsCount: document.querySelectorAll("#terminal button").length,
+    tabLabel: document.querySelector("#terminal")?.textContent.includes("guest@dhanu.dev:~"),
+    statusBadge: document.querySelector("#terminal")?.textContent.includes("bash v5.2"),
   })`);
   console.log('DOM check:', JSON.stringify(domCheck));
 
-  if (!domCheck.showreelSection) throw new Error('Section #showreel missing');
-  if (!domCheck.navbarShowreelLink) throw new Error('Navbar Showreel link missing');
+  if (!domCheck.terminalSection) throw new Error('Section #terminal missing');
+  if (!domCheck.terminalInput) throw new Error('Terminal input element missing');
+  if (!domCheck.navbarTerminalLink) throw new Error('Navbar Terminal link missing');
 
-  console.log('[3] Testing Viewport Responsiveness & Overflow');
+  console.log('[3] Testing Command Execution (help & whoami)');
+
+  // Execute 'help' command using native React input setter & Enter keydown
+  await ev(`(() => {
+    const input = document.querySelector("#terminal input");
+    const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+    setter.call(input, 'help');
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true }));
+  })()`);
+  await sleep(600);
+
+  const helpCheck = await ev(`({
+    hasHelpOutput: document.querySelector("#terminal")?.textContent.includes("Available Commands") || document.querySelector("#terminal")?.textContent.includes("whoami / bio"),
+    linesCount: document.querySelectorAll("#terminal .font-mono").length,
+  })`);
+  console.log('Help command result:', JSON.stringify(helpCheck));
+  if (!helpCheck.hasHelpOutput) throw new Error('Terminal failed to output help command response');
+
+  // Execute 'whoami' command
+  await ev(`(() => {
+    const input = document.querySelector("#terminal input");
+    const setter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+    setter.call(input, 'whoami');
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true }));
+  })()`);
+  await sleep(600);
+
+  const whoamiCheck = await ev(`({
+    hasWhoamiOutput: document.querySelector("#terminal")?.textContent.includes("Dhanu Satrio Darjanto") && document.querySelector("#terminal")?.textContent.includes("Fullstack Developer"),
+  })`);
+  console.log('Whoami command result:', JSON.stringify(whoamiCheck));
+  if (!whoamiCheck.hasWhoamiOutput) throw new Error('Terminal failed to output whoami command response');
+
+  // Test Quick Chips click (skills chip)
+  await ev(`(() => {
+    const chips = Array.from(document.querySelectorAll("#terminal button"));
+    const skillsChip = chips.find(b => (b.textContent || "").trim() === "skills");
+    if (skillsChip) skillsChip.click();
+  })()`);
+  await sleep(600);
+
+  const chipCheck = await ev(`({
+    hasSkillsOutput: document.querySelector("#terminal")?.textContent.includes("Core Technical Stack:") && document.querySelector("#terminal")?.textContent.includes("React 18"),
+  })`);
+  console.log('Quick chip click result:', JSON.stringify(chipCheck));
+  if (!chipCheck.hasSkillsOutput) throw new Error('Terminal quick chip click failed to output skills');
+
+  console.log('[4] Testing Viewport Responsiveness & Overflow');
   const viewports = [
     { name: 'Mobile', width: 390, height: 844 },
     { name: 'Tablet', width: 768, height: 1024 },
@@ -170,14 +265,14 @@ async function main() {
     }
   }
 
-  console.log('[4] Verifying JS errors during run');
+  console.log('[5] Verifying JS errors during run');
   if (jsErrors.length > 0) {
     console.error('JS Errors encountered:', jsErrors);
     throw new Error('Uncaught JS errors found on page');
   }
 
-  console.log('[5] ALL SHOWREEL VERIFICATION CHECKS PASSED!');
-  return { status: 'PASS', jsErrorsCount: jsErrors.length, domCheck };
+  console.log('[6] ALL TERMINAL VERIFICATION CHECKS PASSED!');
+  return { status: 'PASS', jsErrorsCount: jsErrors.length, domCheck, helpCheck, whoamiCheck };
 }
 
 main()
