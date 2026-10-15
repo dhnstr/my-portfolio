@@ -68,11 +68,12 @@ export const Main = () => {
                     </p>
 
                     <div className='flex flex-wrap gap-3 mb-14 fade-in-up' style={{ animationDelay: '0.45s' }}>
-                        <Link to='contact' smooth duration={500} className='cursor-pointer'>
+                        <Link to='showreel' smooth duration={500} className='cursor-pointer'>
                             <button
-                                className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--bd)] bg-transparent text-[var(--t1)] transition-all duration-200 hover:bg-[var(--inv)] hover:text-[var(--inv-t)] hover:border-[var(--inv)]'
+                                className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--inv)] bg-[var(--inv)] text-[var(--inv-t)] transition-all duration-200 hover:bg-transparent hover:text-[var(--t3)] hover:border-[var(--bd)] flex items-center gap-2'
                             >
-                                Get In Touch
+                                <span className='w-2 h-2 rounded-full bg-sky-400 animate-pulse' />
+                                Watch Showreel
                             </button>
                         </Link>
                         <Link to='project' smooth duration={500} className='cursor-pointer'>
@@ -82,9 +83,16 @@ export const Main = () => {
                                 View Projects
                             </button>
                         </Link>
+                        <Link to='contact' smooth duration={500} className='cursor-pointer'>
+                            <button
+                                className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--bd)] bg-transparent text-[var(--t1)] transition-all duration-200 hover:bg-[var(--inv)] hover:text-[var(--inv-t)] hover:border-[var(--inv)]'
+                            >
+                                Get In Touch
+                            </button>
+                        </Link>
                         <a href={resume} download='CV_Dhanu.pdf'>
                             <button
-                                className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--inv)] bg-[var(--inv)] text-[var(--inv-t)] transition-all duration-200 hover:bg-transparent hover:text-[var(--t3)] hover:border-[var(--bd)]'
+                                className='border px-6 py-3 rounded-full font-medium text-sm border-[var(--bd)] bg-transparent text-[var(--t1)] transition-all duration-200 hover:bg-[var(--inv)] hover:text-[var(--inv-t)] hover:border-[var(--inv)]'
                             >
                                 Download CV
                             </button>

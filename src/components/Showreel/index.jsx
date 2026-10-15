@@ -195,6 +195,8 @@ export const Showreel = ({ motion = true }) => {
                             controls
                             loop
                             autoPlay={motion}
+                            muted
+                            acknowledgeRemotionLicense
                             style={{
                                 width: '100%',
                                 height: '100%',

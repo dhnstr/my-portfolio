@@ -1,6 +1,15 @@
 [
     {
         "imageKey": "web3",
+        "title": "Interactive Video Showreel",
+        "tech": "Remotion, React, Tailwind CSS",
+        "type": "Personal Project",
+        "year": "2026",
+        "duration": "1 Week",
+        "category": "Remotion"
+    },
+    {
+        "imageKey": "web3",
         "title": "Portfolio Website",
         "tech": "Next.js, Tailwind CSS",
         "type": "Personal Project",
