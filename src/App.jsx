@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import logoBlack from './assets/logo-black.png';
 import logoWhite from './assets/logo-white.png';
 import Navbar from './components/Navbar';
 import Main from './components/Main';
+const Showreel = lazy(() => import('./components/Showreel'));
 import Project from './components/Project';
 import About from './components/About';
 import Skill from './components/Skill';
@@ -65,6 +66,9 @@ function App() {
         <div className='bg-[var(--bg)] min-h-screen'>
             <Navbar theme={theme} toggleTheme={toggleTheme} />
             <Main />
+            <Suspense fallback={<div className='min-h-[500px]' />}>
+                <Showreel motion={motion} />
+            </Suspense>
             <Project />
             <About />
             <Skill />

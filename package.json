@@ -16,13 +16,15 @@
     "@progress/kendo-react-popup": "^14.2.1",
     "@progress/kendo-theme-default": "^13.1.1",
     "@react-icons/all-files": "^4.1.0",
+    "@remotion/player": "^4.0.535",
     "motion": "^12.38.0",
     "process": "^0.11.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-scroll": "^1.8.9",
-    "react-type-animation": "^3.1.0"
+    "react-type-animation": "^3.1.0",
+    "remotion": "^4.0.535"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
